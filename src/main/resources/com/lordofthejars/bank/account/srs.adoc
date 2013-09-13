@@ -1,0 +1,11 @@
+== Account Design
+
+[cols="1,3"]
+.Bank Transfer
+|===
+|SRS-{counter:srs-id} [[SDS-{srs-id}]]
+|In order to meet <<prs#PRS-4>> users shall be able to transfer money only from one of their registered accounts in database to a foreign account.
+
+|SRS-{counter:srs-id} [[SDS-{srs-id}]]
+|In order to meet <<prs#PRS-4>> account balance shall not become negative, in case of negative balance an exception shall be shown to final user.
+|===

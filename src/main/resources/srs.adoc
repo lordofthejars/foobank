@@ -1,0 +1,13 @@
+= Software Requirement Specification
+Alex Soto
+v1.0.0, Aug 27, 2013
+:icons: font
+:allow-uri-read:
+:copyright: Property of Foo Bank
+:srs-id: 0
+
+include::com/lordofthejars/bank/srs.adoc[]
+
+include::com/lordofthejars/bank/customer/srs.adoc[]
+
+include::com/lordofthejars/bank/account/srs.adoc[]

@@ -1,0 +1,11 @@
+= Stories
+Alex Soto
+v1.0.0, Aug 27, 2013
+:icons: font
+:copyright: Property of Foo Bank
+
+include::transfer/narrative.txt[]
+
+include::transfer/review_past_transfer/narrative.txt[]
+
+include::transfer/transfer_between_accounts/narrative.txt[]

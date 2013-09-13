@@ -1,0 +1,8 @@
+== Responsive Design
+
+[cols="1,3"]
+.Responsive
+|===
+|SRS-{counter:srs-id} [[SRS-{srs-id}]]
+|In order to meet <<prs#PRS-1>> users shall be able to view web page in three different browsers: image: http://upload.wikimedia.org/wikipedia/commons/e/e2/Google_Chrome_icon_%282011%29.svg[Chrome, 25, 25] image:http://upload.wikimedia.org/wikipedia/commons/f/ff/Mozilla_Firefox_logo_2013.png[Firefox, 25, 25] and image:http://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Android_robot.png/202px-Android_robot.png[Android, 25, 25]
+|===

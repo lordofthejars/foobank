@@ -1,0 +1,35 @@
+= Product Requirement Specification
+Alex Soto
+v1.0.0, Aug 27, 2013
+:icons: font
+:copyright: Property of Foo Bank
+
+== Global Requirements
+
+[cols="1,3"]
+.Responsive
+|===
+|PRS-1 [[PRS-1]]
+|Users shall be able to access application from several devices, like mobile phones, tabs and personal computers.
+|===
+
+[cols="1,3"]
+.Security
+|===
+|PRS-2 [[PRS-2]]
+|Users shall be able to authenticate to application using a high security method because of sensible data.
+
+|PRS-3 [[PRS-3]]
+|System shall logout any user if period of inactivity exceeds a specified time.
+|===
+
+IMPORTANT: security is something that our users can be worried about, so it is a very important topic.
+
+== Bank Transfer
+
+[cols="1,3"]
+.Transfer
+|===
+|PRS-4 [[PRS-4]]
+|Users shall be able to make transfers from one of their accounts to another account.
+|===
