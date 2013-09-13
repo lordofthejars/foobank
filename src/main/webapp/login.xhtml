@@ -16,27 +16,27 @@
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="template.xhtml">
-    <ui:define name="content">
-        <h:messages />
-        <h:form>
-            <h:panelGrid columns="3">
-                <h:outputLabel for="username">Enter username:</h:outputLabel>
-                <h:inputText id="username" value="#{logInController.username}" />
-                <h:message for="username" />
+	<ui:define name="content">
+		<h:messages />
+		<h:form styleClass="form-signin">
+			<h2 class="form-signin-heading">Please sign in</h2>
+			
+			<h:outputLabel for="username">Enter username:</h:outputLabel>
+			<h:inputText id="username" styleClass="form-control"
+				value="#{logInController.username}" />
 
-                <h:outputLabel for="password">Password:</h:outputLabel>
-                <h:inputSecret id="password" value="#{logInController.password}" />
-                <h:message for="password" />
+			<h:outputLabel for="password">Password:</h:outputLabel>
+			<h:inputSecret id="password" styleClass="form-control"
+				value="#{logInController.password}" />
 
-            </h:panelGrid>
-            <h:commandButton action="#{logInController.startSession}"
-                value="Start Session" />
-        </h:form>
-    </ui:define>
+			<h:commandButton styleClass="btn btn-lg btn-primary btn-block"
+				action="#{logInController.startSession}" value="Sign In" />
+		</h:form>
+	</ui:define>
 </ui:composition>
 </html>

@@ -24,20 +24,27 @@
 	<ui:define name="content">
         #{currentCustomer.name} <br />
 
-		<h:dataTable value="#{currentCustomer.accounts}" var="account">
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading">
+				<h2>Account Information</h2>
+			</div>
 
-			<h:column>
-				<f:facet name="header">AccountNumber</f:facet>
+			<h:dataTable styleClass="table table-striped"
+				value="#{currentCustomer.accounts}" var="account">
+
+				<h:column>
+					<f:facet name="header">AccountNumber</f:facet>
     				#{account.accountNumber}
     		</h:column>
 
-			<h:column>
-				<f:facet name="header">Balance</f:facet>
+				<h:column>
+					<f:facet name="header">Balance</f:facet>
     				#{account.balance}
     		</h:column>
 
-		</h:dataTable>
-
+			</h:dataTable>
+		</div>
 
 		<h:form>
 			<h:selectOneMenu id="from" value="#{transferController.fromAccount}">
@@ -47,7 +54,7 @@
 			<h:inputText id="amount" value="#{transferController.amount}" />
 			<h:commandButton action="#{transferController.transfer}"
 				value="Transfer" />
-			<h:messages style="color:red"/>
+			<h:messages style="color:red" />
 		</h:form>
 	</ui:define>
 </ui:composition>
