@@ -22,40 +22,69 @@
 
 <ui:composition template="template.xhtml">
 	<ui:define name="content">
-        #{currentCustomer.name} <br />
 
-		<div class="panel panel-default">
-			<!-- Default panel contents -->
-			<div class="panel-heading">
-				<h2>Account Information</h2>
+		<div class="jumbotron">
+			<div class="content">
+				<h1>Welcome back, #{currentCustomer.name}</h1>
 			</div>
+		</div>
 
-			<h:dataTable styleClass="table table-striped"
-				value="#{currentCustomer.accounts}" var="account">
+		<div class="well well-sm">
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-heading">
+					<h2>Account Information</h2>
+				</div>
 
-				<h:column>
-					<f:facet name="header">AccountNumber</f:facet>
+				<h:dataTable styleClass="table table-striped"
+					value="#{currentCustomer.accounts}" var="account">
+
+					<h:column>
+						<f:facet name="header">AccountNumber</f:facet>
     				#{account.accountNumber}
     		</h:column>
 
-				<h:column>
-					<f:facet name="header">Balance</f:facet>
+					<h:column>
+						<f:facet name="header">Balance</f:facet>
     				#{account.balance}
     		</h:column>
 
-			</h:dataTable>
+				</h:dataTable>
+			</div>
 		</div>
 
-		<h:form>
-			<h:selectOneMenu id="from" value="#{transferController.fromAccount}">
-				<f:selectItems value="#{currentCustomer.accounts}" />
-			</h:selectOneMenu>
-			<h:inputText id="to" value="#{transferController.toAccount}" />
-			<h:inputText id="amount" value="#{transferController.amount}" />
-			<h:commandButton action="#{transferController.transfer}"
-				value="Transfer" />
-			<h:messages style="color:red" />
-		</h:form>
+		<div class="well well-sm">
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-heading">
+					<h2>Transfer Money</h2>
+				</div>
+
+				<h:form styleClass="form">
+					<div class="row">
+						<div class="col-md-3">
+							<h:selectOneMenu id="from" styleClass="form-control input-sm"
+								value="#{transferController.fromAccount}">
+								<f:selectItems value="#{currentCustomer.accounts}" />
+							</h:selectOneMenu>
+						</div>
+						<div class="col-md-3">
+							<h:inputText id="to" styleClass="form-control input-sm"
+								value="#{transferController.toAccount}" />
+						</div>
+						<div class="col-md-3">
+							<h:inputText id="amount" styleClass="form-control input-sm"
+								value="#{transferController.amount}" />
+						</div>
+						<div class="col-md-3">
+							<h:commandButton styleClass="btn btn-primary btn-sm btn-block"
+								action="#{transferController.transfer}" value="Transfer" />
+						</div>
+						<h:messages styleClass="alert alert-danger" />
+					</div>
+				</h:form>
+			</div>
+		</div>
 	</ui:define>
 </ui:composition>
 </html>
