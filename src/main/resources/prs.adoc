@@ -21,6 +21,9 @@ v1.0.0, Aug 27, 2013
 
 |PRS-3 [[PRS-3]]
 |System shall logout any user if period of inactivity exceeds a specified time.
+
+|PRS-5 [[PRS-5]]
+|Only users older than 17 shall be able to transfer money between accounts.
 |===
 
 IMPORTANT: security is something that our users can be worried about, so it is a very important topic.
