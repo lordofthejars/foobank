@@ -3,9 +3,12 @@
 [cols="1,3"]
 .Security
 |===
-|SRS-{counter:srs-id} [[SDS-{srs-id}]]
+|SRS-{counter:srs-id} [[SRS-{srs-id}]]
 |In order to meet <<prs#PRS-2>> users shall be registered to the system with a login and a password authenticating against internal customer database.
 
-|SRS-{counter:srs-id} [[SDS-{srs-id}]]
+|SRS-{counter:srs-id} [[SRS-{srs-id}]]
 |In order to meet <<prs#PRS-2>> users' password shall be encrypted with 'MD5' algorithm.
+
+|SRS-{counter:srs-id} [[SRS-{srs-id}]]
+|In order to meet <<prs#PRS-5>> a protection shall be added for avoiding underage customers do money transfers.
 |===

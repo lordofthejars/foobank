@@ -53,11 +53,11 @@ public class TransferController {
 	
 	public void transfer() {
 		
-		/*if(currentCustomer.getAge() < 18) {
+		if(currentCustomer.getAge() < 18) {
 			facesContext.addMessage(null, new FacesMessage("Underage users cannot do transfers."));
-		} else {*/
+		} else {
 			this.accountService.transfer(fromAccount, toAccount, amount);
-		//}
+		}
 	}
 	
 }
