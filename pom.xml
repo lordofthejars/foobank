@@ -12,7 +12,8 @@
 		<junit.version>4.11</junit.version>
 		<javaee.version>6.0-5</javaee.version>
 		<arquillian.version>1.1.1.Final</arquillian.version>
-		<arquillian.drone.version>1.2.0.Beta1</arquillian.drone.version>
+		<arquillian.drone.version>1.2.0.Beta2</arquillian.drone.version>
+		<droidum.version>1.0.0.Alpha1</droidum.version>
 		<browser>htmlUnit</browser>
 		<remoteReusable>false</remoteReusable>
 	</properties>
@@ -245,6 +246,43 @@
 				<remoteReusable>true</remoteReusable>
 			</properties>
 		</profile>
+		
+		<profile>
+            <!-- Profile by which tests are executed, be sure you provide all 
+                needed parameters on command line in order to satisfy Maven. -->
+            <id>browser-android</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Name of AVD (emulator) to use when starting Android device -->
+                <android.avd.name>my_nexus</android.avd.name>
+                <android.emulator.options></android.emulator.options>
+                <browser>android</browser>
+            </properties>
+
+            <!-- Dependencies -->
+            <dependencies>
+
+                <!-- Arquillian Droidium container adapter -->
+                <dependency>
+                    <groupId>org.arquillian.container</groupId>
+                    <artifactId>arquillian-droidium-container-depchain</artifactId>
+                    <type>pom</type>
+                    <scope>test</scope>
+                    <version>${droidum.version}</version>
+                </dependency>
+
+                <!-- Arquillian Droidium for web testing -->
+                <dependency>
+                    <groupId>org.arquillian.extension</groupId>
+                    <artifactId>arquillian-droidium-web-depchain</artifactId>
+                    <version>${droidum.version}</version>
+                    <type>pom</type>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+            </profile>
 
 	</profiles>
 </project>

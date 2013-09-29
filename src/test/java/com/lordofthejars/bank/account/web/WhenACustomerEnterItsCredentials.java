@@ -15,6 +15,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import com.lordofthejars.bank.Resources;
 import com.lordofthejars.bank.account.Account;
 import com.lordofthejars.bank.account.AccountService;
 import com.lordofthejars.bank.account.SecureAccountService;
@@ -30,32 +31,37 @@ import com.lordofthejars.bank.customer.web.LogInController;
 public class WhenACustomerEnterItsCredentials {
 
 	private static final String WEBAPP_SRC = "src/main/webapp";
-    
-    @Deployment(testable = false)
-    public static WebArchive createDeployment() {
-        return ShrinkWrap.create(WebArchive.class, "login.war")
-            .addClasses(Account.class, AccountService.class, SecureAccountService.class, TransferController.class, AccountRepository.class, FixedAccountRepository.class)
-            .addClasses(Customer.class, LogInController.class, CustomerRepository.class, FixedCustomerRepository.class)
-            .addAsWebResource(new File(WEBAPP_SRC, "login.xhtml"))
-            .addAsWebResource(new File(WEBAPP_SRC, "template.xhtml"))
-            .addAsWebResource(new File(WEBAPP_SRC, "transfer.xhtml"))
-            .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
-            .addAsWebInfResource(new File(WEBAPP_SRC, "WEB-INF/faces-config.xml"))
-            .addAsWebInfResource(new File(WEBAPP_SRC, "WEB-INF/web.xml"));
-    }
-    
-    @ArquillianResource
-    URL contextPath;
-    
-    @Drone
-    WebDriver driver;
-    
-    @Test
-    public void test() {
-    	System.out.println(contextPath);
-    	driver.get(contextPath+"login.xhtml");
-    	
-    	
-    }
-	
+
+	@Deployment(testable = false)
+	public static WebArchive createDeployment() {
+		return ShrinkWrap
+				.create(WebArchive.class, "login.war")
+				.addClass(Resources.class)
+				.addClasses(Account.class, AccountService.class,
+						SecureAccountService.class, TransferController.class,
+						AccountRepository.class, FixedAccountRepository.class)
+				.addClasses(Customer.class, LogInController.class,
+						CustomerRepository.class, FixedCustomerRepository.class)
+				.addAsWebResource(new File(WEBAPP_SRC, "login.xhtml"))
+				.addAsWebResource(new File(WEBAPP_SRC, "template.xhtml"))
+				.addAsWebResource(new File(WEBAPP_SRC, "transfer.xhtml"))
+				.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
+				.addAsWebInfResource(
+						new File(WEBAPP_SRC, "WEB-INF/faces-config.xml"))
+				.addAsWebInfResource(new File(WEBAPP_SRC, "WEB-INF/web.xml"));
+	}
+
+	@ArquillianResource
+	URL contextPath;
+
+	@Drone
+	WebDriver driver;
+
+	@Test
+	public void test() {
+		System.out.println(contextPath);
+		driver.get(contextPath + "login.xhtml");
+
+	}
+
 }

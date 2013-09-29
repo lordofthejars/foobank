@@ -2,6 +2,29 @@
 	xmlns="http://jboss.org/schema/arquillian"
 	xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
 
+	<group qualifier="containers" default="true">
+		<container qualifier="android" default="true">
+			<configuration>
+				<!-- Name of Android container to start or use during tests. This property 
+					is filtered meaning it is set in profile in pom.xml under the same name of 
+					the property. -->
+				<property name="avdName">${android.avd.name}</property>
+				<property name="emulatorOptions">${android.emulator.options}</property>
+				<property name="emulatorBootupTimeoutInSeconds">600</property>
+				<property name="logType">disable</property>
+				<property name="droneGuestPort">8080</property>
+				<property name="droneHostPort">8080</property>
+				<property name="adapterImplClass">org.arquillian.droidium.container.AndroidDeployableContainer</property>
+			</configuration>
+		</container>
+	</group>
+
+	<!-- Configuration of Droidium extension for web testing -->
+	<extension qualifier="droidium-web">
+		<!-- Path of Android server APK -->
+		<property name="serverApk">android-server-2.32.0.apk</property>
+	</extension>
+
 	<extension qualifier="webdriver">
 		<property name="javascriptEnabled">true</property>
 
@@ -9,7 +32,7 @@
 		<property name="remoteAddress">http://localhost:4444/wd/hub/</property>
 		<property name="chromeDriverBinary">/Users/alexsotobueno/Downloads/chromedriver</property>
 		<property name="remoteReusable">${remoteReusable}</property>
-<!-- 		<property name="remoteAddress">http://localhost:4444/wd/hub/</property> -->
+		<!-- <property name="remoteAddress">http://localhost:4444/wd/hub/</property> -->
 	</extension>
 
 </arquillian>
