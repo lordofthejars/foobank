@@ -24,7 +24,7 @@
 	<ui:define name="content">
 
 		<div class="jumbotron">
-			<div class="content">
+			<div id="welcomeMessage" class="content">
 				<h1>Welcome back, #{currentCustomer.name}</h1>
 			</div>
 		</div>
@@ -36,7 +36,7 @@
 					<h2>Account Information</h2>
 				</div>
 
-				<h:dataTable styleClass="table table-striped"
+				<h:dataTable id="summary" styleClass="table table-striped"
 					value="#{currentCustomer.accounts}" var="account">
 
 					<h:column>

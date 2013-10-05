@@ -23,7 +23,7 @@
 <ui:composition template="template.xhtml">
 	<ui:define name="content">
 		<h:messages />
-		<h:form styleClass="form-signin">
+		<h:form id="login" styleClass="form-signin" prependId="false">
 			<h2 class="form-signin-heading">Please sign in</h2>
 			
 			<h:outputLabel for="username">Enter username:</h:outputLabel>
@@ -34,7 +34,7 @@
 			<h:inputSecret id="password" styleClass="form-control"
 				value="#{logInController.password}" />
 
-			<h:commandButton styleClass="btn btn-lg btn-primary btn-block"
+			<h:commandButton id="submit" styleClass="btn btn-lg btn-primary btn-block"
 				action="#{logInController.startSession}" value="Sign In" />
 		</h:form>
 	</ui:define>

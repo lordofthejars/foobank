@@ -6,10 +6,15 @@ import java.net.URL;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.drone.api.annotation.Drone;
+import org.jboss.arquillian.graphene.page.InitialPage;
+import org.jboss.arquillian.graphene.page.Page;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
+import org.jboss.shrinkwrap.api.Filters;
+import org.jboss.shrinkwrap.api.GenericArchive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.importer.ExplodedImporter;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,7 +39,7 @@ public class WhenACustomerEnterItsCredentials {
 
 	@Deployment(testable = false)
 	public static WebArchive createDeployment() {
-		return ShrinkWrap
+		WebArchive webArchive = ShrinkWrap
 				.create(WebArchive.class, "login.war")
 				.addClass(Resources.class)
 				.addClasses(Account.class, AccountService.class,
@@ -42,6 +47,18 @@ public class WhenACustomerEnterItsCredentials {
 						AccountRepository.class, FixedAccountRepository.class)
 				.addClasses(Customer.class, LogInController.class,
 						CustomerRepository.class, FixedCustomerRepository.class)
+				.merge(ShrinkWrap.create(GenericArchive.class)
+						.as(ExplodedImporter.class)
+						.importDirectory(WEBAPP_SRC + "/resources/css")
+						.as(GenericArchive.class), "/resources/css", Filters.includeAll())
+				.merge(ShrinkWrap.create(GenericArchive.class)
+						.as(ExplodedImporter.class)
+						.importDirectory(WEBAPP_SRC + "/resources/fonts")
+						.as(GenericArchive.class), "/resources/fonts", Filters.includeAll())
+				.merge(ShrinkWrap.create(GenericArchive.class)
+						.as(ExplodedImporter.class)
+						.importDirectory(WEBAPP_SRC + "/resources/js")
+						.as(GenericArchive.class), "/resources/js", Filters.includeAll())
 				.addAsWebResource(new File(WEBAPP_SRC, "login.xhtml"))
 				.addAsWebResource(new File(WEBAPP_SRC, "template.xhtml"))
 				.addAsWebResource(new File(WEBAPP_SRC, "transfer.xhtml"))
@@ -49,6 +66,8 @@ public class WhenACustomerEnterItsCredentials {
 				.addAsWebInfResource(
 						new File(WEBAPP_SRC, "WEB-INF/faces-config.xml"))
 				.addAsWebInfResource(new File(WEBAPP_SRC, "WEB-INF/web.xml"));
+		
+		return webArchive;
 	}
 
 	@ArquillianResource
@@ -57,10 +76,14 @@ public class WhenACustomerEnterItsCredentials {
 	@Drone
 	WebDriver driver;
 
+	@Page
+	private TransferPage transferPage;
+
 	@Test
-	public void test() {
-		System.out.println(contextPath);
-		driver.get(contextPath + "login.xhtml");
+	public void should_login_succesful(@InitialPage LoginPage loginPage) {
+
+		loginPage.signIn("aa", "bb");
+		transferPage.assertOnTransferPage("aa");
 
 	}
 

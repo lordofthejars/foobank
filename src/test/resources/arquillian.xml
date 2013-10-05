@@ -52,5 +52,9 @@
 		<property name="remoteReusable">${remoteReusable}</property>
 		<!-- <property name="remoteAddress">http://localhost:4444/wd/hub/</property> -->
 	</extension>
+	
+	<extension qualifier="graphene">
+        <property name="waitGuiInterval">30</property>
+    </extension>
 
 </arquillian>
