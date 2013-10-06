@@ -290,6 +290,13 @@
 				<browser>firefox</browser>
 			</properties>
 		</profile>
+		
+		<profile>
+			<id>browser-phantomjs</id>
+			<properties>
+				<browser>phantomjs</browser>
+			</properties>
+		</profile>
 
 		<profile>
 			<id>browser-remote-reusable</id>
@@ -323,37 +330,6 @@
                 </dependency>
             </dependencies>
         </profile>
-		
-<!-- 		<profile> -->
-<!--             <id>browser-android</id> -->
-<!--             <activation> -->
-<!--                 <activeByDefault>false</activeByDefault> -->
-<!--             </activation> -->
-<!--             <properties> -->
-<!--                 <android.avd.name>my_nexus</android.avd.name> -->
-<!--                 <android.emulator.options></android.emulator.options> -->
-<!--                 <browser>android</browser> -->
-<!--             </properties> -->
-
-<!--             <dependencies> -->
-
-<!--                 <dependency> -->
-<!--                     <groupId>org.arquillian.container</groupId> -->
-<!--                     <artifactId>arquillian-droidium-container-depchain</artifactId> -->
-<!--                     <type>pom</type> -->
-<!--                     <scope>test</scope> -->
-<!--                     <version>${droidum.version}</version> -->
-<!--                 </dependency> -->
-
-<!--                 <dependency> -->
-<!--                     <groupId>org.arquillian.extension</groupId> -->
-<!--                     <artifactId>arquillian-droidium-web-depchain</artifactId> -->
-<!--                     <version>${droidum.version}</version> -->
-<!--                     <type>pom</type> -->
-<!--                     <scope>test</scope> -->
-<!--                 </dependency> -->
-<!--             </dependencies> -->
-<!--             </profile> -->
 
 	</profiles>
 </project>
