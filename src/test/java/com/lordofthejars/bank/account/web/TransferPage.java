@@ -14,7 +14,7 @@ public class TransferPage {
 	@FindBy(id = "summary")
 	private WebElement summaryTable;
 	
-	public void assertOnTransferPage(String username) {
+	public void assertOnTransferPageWithWelcomeMessage(String username) {
 		assertThat(welcomeMessage.getText(), is("Welcome back, "+username));
 	}
 	

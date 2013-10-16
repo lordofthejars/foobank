@@ -50,7 +50,7 @@
 		<property name="browser">${browser}</property>
 		<property name="chromeDriverBinary">/Users/alexsotobueno/Downloads/chromedriver</property>
 		<property name="remoteReusable">${remoteReusable}</property>
-		<!-- <property name="remoteAddress">http://localhost:4444/wd/hub/</property> -->
+		<property name="remoteAddress">http://localhost:14444/wd/hub/</property>
 	</extension>
 	
 	<extension qualifier="graphene">
